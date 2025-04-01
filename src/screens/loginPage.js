@@ -24,6 +24,8 @@ const LoginPage = ({navigation}) => {
         {/*{FormLogin}*/}
         <View style = { styles.viewContainer}>
           <Text style={styles.header}> Form Login </Text>
+
+          <Text style={styles.header}> Form Login Testing </Text>
           <Text style={styles.label}>Name :</Text>
           <TextInput
             style={styles.input}
