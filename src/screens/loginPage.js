@@ -1,13 +1,36 @@
 import { View, Text, ImageBackground, TextInput,StyleSheet, TouchableOpacity, Alert, } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from "axios";
 
 const LoginPage = ({navigation}) => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
+  const [apiData, setapiData] = useState();
+   
+
+ 
   
+  const getApiData = async () => {
+    try {
+      const response = await axios.post("", {
+        name: name,
+        email: email,
+
+      });
+      //setapi data
+      setapiData(response.data)
+      console.log("apiData is :", setapiData);
+      Alert.alert("Success", "Succesfull login")
+      
+    } catch (error) {
+      console.error("API Error:", error);
+      Alert.alert("Error", "Something went wrong. Please try again.");
+    }
+  }
 
   //Press and next page
   handleLogin = () => {
+    getApiData();
     navigation.navigate("HomePage");
   };
 
@@ -25,7 +48,7 @@ const LoginPage = ({navigation}) => {
         <View style = { styles.viewContainer}>
           <Text style={styles.header}> Form Login </Text>
 
-          <Text style={styles.header}> Form Login Testing </Text>
+
           <Text style={styles.label}>Name :</Text>
           <TextInput
             style={styles.input}
