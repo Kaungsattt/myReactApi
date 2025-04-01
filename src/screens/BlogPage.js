@@ -35,13 +35,6 @@ const BlogPage = () => {
               <Text style={styles.blogTitle}>{item.title}</Text>
               <Text style={styles.blogCategory}>Category: {item.category}</Text>
               <Text style={styles.blogDescription}>{item.description}</Text>
-
-              {/*<TouchableOpacity 
-                style={styles.deleteButton} 
-                onPress={() => deleteBlog(index)}
-              >
-                <Text style={styles.deleteButtonText}>Delete</Text>
-              </TouchableOpacity>*/}
             </View>
           )}
         />
